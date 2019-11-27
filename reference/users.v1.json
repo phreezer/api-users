@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Users",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/users/{userid}": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "userid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "User GET endpoint",
+        "tags": [
+          "users",
+          "get"
+        ],
+        "responses": {},
+        "operationId": "get-users-{userid}"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "object",
+            "properties": {
+              "prefered": {
+                "type": "string"
+              },
+              "first": {
+                "type": "string"
+              },
+              "middle": {
+                "type": "string"
+              },
+              "last": {
+                "type": "string"
+              },
+              "sur": {
+                "type": "string"
+              }
+            }
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "emails": {
+                "type": "object",
+                "properties": {
+                  "mailboxes": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "isPublic": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "primary": {
+                    "type": "string"
+                  }
+                }
+              },
+              "phones": {
+                "type": "object",
+                "properties": {
+                  "cell": {
+                    "type": "object",
+                    "properties": {
+                      "numbers": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "primary": {
+                    "type": "string"
+                  },
+                  "office": {
+                    "type": "object",
+                    "properties": {
+                      "numbers": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "User Account Details"
+      }
+    }
+  }
+}
